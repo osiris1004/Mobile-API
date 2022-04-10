@@ -33,6 +33,10 @@ const MapScreen = () => {
               <Stack.Screen 
                 name="RideOptionCard"  /* title of your screen */
                 component = {RideOptionCard} /* the name of the component you a rending  */
+                options ={
+                  {
+                    headerShown: false
+                  }}
                 />    
           </Stack.Navigator>
 

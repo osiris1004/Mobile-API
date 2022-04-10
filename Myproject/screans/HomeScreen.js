@@ -7,6 +7,7 @@ import { GOOGLE_MAPS_APIKEY } from '@env'
 
 import {setOrigin, setDestination} from '../slices/navSlice'
 import { useDispatch } from 'react-redux';
+import NavFavourites from '../components/NavFavourites';
 
 // * <SafeAreaView>  void your text to go on to the noche area 
 const HomeScreen = () => {
@@ -14,26 +15,27 @@ const HomeScreen = () => {
 
     const dispatch = useDispatch()
   return (
-    <SafeAreaView> 
+    <SafeAreaView style={tw`flex`}> 
       
-        <View style={tw`bg-red-600 border-2 p-5`}>
+        <View style={tw`bg-white border p-5 flex-grow `}>
             <Image 
                 style={
                     {
-                        width: 100,
-                        height:100,
+                        width: 50,
+                        height:50,
+                        
                     }
                 }
                 source={
                     //passing an object
                     {
-                        uri: 'https://lezebre.lu/images/detailed/83/48393-uber_logo.jpg',
+                        uri: 'https://redcat-studio.fr/logo.png',
                     }}
 
             >
             </Image>
             <GooglePlacesAutocomplete 
-                    placeholder='where From'
+                    placeholder='d où'
                     styles={
                         {
                             container:{
@@ -70,9 +72,11 @@ const HomeScreen = () => {
                         
                         dispatch(setDestination(null))
                    }}
-                   />
+                   /> 
             
             <NavOptions></NavOptions>
+
+            <NavFavourites></NavFavourites>
         </View>
 
         
@@ -83,7 +87,10 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
-    text:{
-        color: "blue"
-    }
+    centered: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#ffc2c2",
+      }
 })

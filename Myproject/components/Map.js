@@ -12,14 +12,14 @@ const Map = () => {
     
     const origin = useSelector(selectOrigin)
     const destination = useSelector(selectDestination)
-    const mapRef = useRef(null)
-    const isMounted = useRef(true)
+    const mapRef = useRef(null) // like  a pointer
+   
 
     useEffect(() => { 
       if(!origin || !destination) return;
     
      return () => {
-        isMounted.current = false
+         
         mapRef.current.fitToSuppliedMarkers(["origin", "destination"],{
             edgePadding : {top: 50, right: 50, bottom: 50, left:50}
           } )
@@ -28,7 +28,7 @@ const Map = () => {
     
   return (
         <MapView
-            ref ={mapRef}
+            ref ={mapRef} // point to the map
             style={tw`flex-1`}
             initialRegion={{
                 latitude: origin.location.lat,
@@ -39,17 +39,22 @@ const Map = () => {
             }}
         >
             {/* if my origin and destination is set then do the following */}
-            {origin && destination && (
+            { origin  &&  destination && (
+                
                 <MapViewDirections
-                    origin = {{latitude: 37.3318456, longitude: -122.0296002}}
-                    destination ={{latitude: 37.3318456, longitude: -122.0296002}}
+
+                    origin = {origin.description}
+                    //{latitude: 48.937633459803514, longitude:  2.158003184739529}
+                    destination ={destination.description}
                     apikey = {GOOGLE_MAPS_APIKEY}
                     strokeWidth ={3}
                     strokeColor="red"
                 >
 
                 </MapViewDirections>
+               
             )}
+
         {origin?.location && (
         <Marker
             coordinate={
@@ -60,6 +65,20 @@ const Map = () => {
             title ="origin"
             description={origin.description}
             identifier="origin"    
+            >
+            </Marker>
+        )}
+
+        {destination?.location && (
+        <Marker
+            coordinate={
+                {
+                   latitude: destination.location.lat,
+                    longitude: destination.location.lng,
+                }}
+            title ="Destination"
+            description={destination.description}
+            identifier="destination"    
             >
             </Marker>
         )}

@@ -7,22 +7,26 @@ import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch } from 'react-redux';
 import { setDestination } from '../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
+import NavFavourites from './NavFavourites';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Icon } from 'react-native-elements';
 
 const NavigateCard = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
   return (
-      <SafeAreaView style={tw`bg-white flex-1`}>
+      <SafeAreaView style={tw`bg-red-200`}>
     
-            <Text style={tw`text-center py-5 text-xl`}>Good morning, Sonny</Text>
+            <Text style={tw`text-center text-xl`}>Bonjour, Sonny</Text>
         
         <View
-            style={tw`border-t border-gray-200 flex-shrink`}>
+            style={tw`border-t border-gray-200`}>
            
-           <GooglePlacesAutocomplete 
+                <GooglePlacesAutocomplete 
                     placeholder='where To ?'
                     styles={ toInputBoxStyles}
                    nearbyPlacesAPI ="GooglePlacesSearch"
+                   disableScroll={false}
 
                    debounce = {400}
 
@@ -30,7 +34,6 @@ const NavigateCard = () => {
                        {
                             key: GOOGLE_MAPS_APIKEY,
                            language:'en',
-                           
                            
                        }
                    }
@@ -51,7 +54,32 @@ const NavigateCard = () => {
                         dispatch(setDestination(null))
                    }}
                 />
+            
+        </View>
+        <NavFavourites></NavFavourites>
+        
+        <View style={tw`flex flex-row justify-evenly mt-auto py-2 border-t border-gray-200`}>
+            <TouchableOpacity
+                onPress={()=> navigation.navigate("RideOptionCard")}
+                style={tw`flex flex-row bg-black w-28 px-4 py-3 rounded-full justify-between`}
+            >
+            <Icon
+                    
+                    name="car" 
+                    color='white' 
+                    type='font-awesome'
+                    size={16}
+                    style={tw`pr-2`}
+                >
 
+                </Icon>
+                <Text
+                        style={tw`text-white text-center`}
+                    >
+                        un tour
+
+                    </Text>
+            </TouchableOpacity>
         </View>
       </SafeAreaView>
     
@@ -67,9 +95,8 @@ const toInputBoxStyles = StyleSheet.create({
         flex: 0
     },
     textInput:{
-        backgroundColor: "gray",
+        backgroundColor: "lightgray",
         borderRadius: 0,
-        fontSize: 0,
         color : "white"
         
     },
