@@ -17,7 +17,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={tw`flex`}> 
       
-        <View style={tw`bg-white border p-5 flex-grow `}>
+        <View style={tw`bg-white p-5 h-full `}>
             <Image 
                 style={
                     {
@@ -39,7 +39,12 @@ const HomeScreen = () => {
                     styles={
                         {
                             container:{
-                                flex: 0
+                                flex: 0,
+                                paddingTop:20,
+                                borderBottomWidth: 2,
+                                borderColor: "lightgray"
+
+                                
                             },
                             textInput:{
                                 fontSize: 18
@@ -87,10 +92,8 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
-    centered: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#ffc2c2",
-      }
+    
 })
+
+
+

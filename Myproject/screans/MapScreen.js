@@ -37,6 +37,7 @@ const MapScreen = () => {
                   {
                     headerShown: false
                   }}
+                  
                 />    
           </Stack.Navigator>
 

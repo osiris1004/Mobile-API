@@ -15,18 +15,19 @@ const NavigateCard = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
   return (
-      <SafeAreaView style={tw`bg-red-200`}>
+      <View style={tw`bg-white`}>
     
-            <Text style={tw`text-center text-xl`}>Bonjour, Sonny</Text>
+        <Text style={tw`text-center text-xl pt-3 pb-2`}>Bonjour,</Text>
         
         <View
-            style={tw`border-t border-gray-200`}>
+            style={tw`border-0 border-gray-200 `}>
            
                 <GooglePlacesAutocomplete 
-                    placeholder='where To ?'
-                    styles={ toInputBoxStyles}
+                    placeholder='où aller ?'
+                    styles={ toInputBoxStyles }
                    nearbyPlacesAPI ="GooglePlacesSearch"
                    disableScroll={false}
+                   keyboardShouldPersistTaps='always'
 
                    debounce = {400}
 
@@ -81,7 +82,7 @@ const NavigateCard = () => {
                     </Text>
             </TouchableOpacity>
         </View>
-      </SafeAreaView>
+      </View>
     
   )
 }
@@ -91,8 +92,8 @@ export default NavigateCard
 const toInputBoxStyles = StyleSheet.create({
     container:{
         backgroundColor: "white",
-        paddingTop : 20,
-        flex: 0
+        flex: 0,
+       
     },
     textInput:{
         backgroundColor: "lightgray",

@@ -15,16 +15,16 @@ const Map = () => {
     const mapRef = useRef(null) // like  a pointer
    
 
-    useEffect(() => { 
-      if(!origin || !destination) return;
+    // useEffect(() => { 
+    //   if(!origin || !destination) return;
     
-     return () => {
+    //  return () => {
          
-        mapRef.current.fitToSuppliedMarkers(["origin", "destination"],{
-            edgePadding : {top: 50, right: 50, bottom: 50, left:50}
-          } )
-     }
-     }, [origin, destination])
+    //     mapRef.current.fitToSuppliedMarkers(["origin", "destination"],{
+    //         edgePadding : {top: 50, right: 50, bottom: 50, left:50}
+    //       } )
+    //  }
+    //  }, [origin, destination])
     
   return (
         <MapView
@@ -39,20 +39,18 @@ const Map = () => {
             }}
         >
             {/* if my origin and destination is set then do the following */}
-            { origin  &&  destination && (
+            { destination && (
                 
-                <MapViewDirections
-
-                    origin = {origin.description}
-                    //{latitude: 48.937633459803514, longitude:  2.158003184739529}
-                    destination ={destination.description}
-                    apikey = {GOOGLE_MAPS_APIKEY}
-                    strokeWidth ={3}
-                    strokeColor="red"
-                >
-
-                </MapViewDirections>
-               
+                //console.log(origin.description) ,
+            <MapViewDirections
+                origin = {(origin.description)}
+                destination = {{latitude: 48.937633459803514, longitude:  2.158003184739529}}
+                //destination ={destination.description}
+                apikey = {GOOGLE_MAPS_APIKEY}
+                strokeWidth ={5}
+                strokeColor="blue"
+            >
+            </MapViewDirections>   
             )}
 
         {origin?.location && (

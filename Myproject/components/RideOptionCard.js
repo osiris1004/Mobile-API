@@ -31,18 +31,29 @@ const RideOptionCard = () => {
   const navigation = useNavigation()
   const [selected, setSelected] = useState(null)
   return (
-    <SafeAreaView style={tw`bg-white flex-grow `}>
-        <View>
-          <TouchableOpacity 
-              onPress={ () => navigation.navigate("NavigateCard")}
-              style={tw`left-1 flex-row pt-0`}>
-            <Icon 
-              name ="chevron-left" type ="fontawesome"
-            >
-            </Icon>
-          </TouchableOpacity>
-          <Text style={tw`text-center py-5 text-xl`}>
-              Select a ride 
+
+        <View style={tw`bg-white h-full `}>
+          
+              <TouchableOpacity 
+                  onPress={ () => navigation.navigate("NavigateCard")}
+                  styles={{
+                    container: {
+                      alignItems: "center",
+                      backgroundColor: "black",
+                      padding: 10,
+                      position: "absolute"
+                    }
+                  }}
+                  >
+                <Icon 
+                  name ="chevron-left" type ="fontawesome"
+                  
+                >
+                </Icon>
+              </TouchableOpacity>
+          
+          <Text style={tw`text-center py-5 pt-4 text-xl`}>
+                Sélectionnez un trajet
           </Text>
           <FlatList
 
@@ -70,9 +81,9 @@ const RideOptionCard = () => {
                           </Image>
                           <View style={tw`-ml-6`}>
                               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                              <Text>Travel tile..</Text>
+                              <Text>Titre de voyage...</Text>
                           </View>
-                          <Text style={tw`-ml-6`}>3</Text>
+                          <Text style={tw`-ml-6`}>30 €</Text>
 
                       </TouchableOpacity>
                       
@@ -87,13 +98,13 @@ const RideOptionCard = () => {
                     
                         <Text style={tw`text-center text-white text-xl ${
                       !selected && 'border text-black' }`}>
-                           Choose {selected?.title}
+                            Choisir {selected?.title}
                         </Text>
                     
                     </TouchableOpacity>
                   </View>
         </View>
-    </SafeAreaView>
+    
   )
 }
 
