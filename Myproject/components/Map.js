@@ -44,8 +44,8 @@ const Map = () => {
                 //console.log(origin.description) ,
             <MapViewDirections
                 origin = {(origin.description)}
-                destination = {{latitude: 48.937633459803514, longitude:  2.158003184739529}}
-                //destination ={destination.description}
+                //destination = {{latitude: 48.937633459803514, longitude:  2.158003184739529}}
+                destination ={destination.description}
                 apikey = {GOOGLE_MAPS_APIKEY}
                 strokeWidth ={5}
                 strokeColor="blue"

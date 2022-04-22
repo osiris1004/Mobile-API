@@ -29,7 +29,7 @@ const HomeScreen = () => {
                 source={
                     //passing an object
                     {
-                        uri: 'https://redcat-studio.fr/logo.png',
+                        uri: 'https://media-exp1.licdn.com/dms/image/C560BAQFgcx9RUJ78Ww/company-logo_200_200/0/1569340917764?e=2147483647&v=beta&t=qnsgyAR0A08bboyIa_u431ftBwvHIZzNGT7DngsGF5k',
                     }}
 
             >
